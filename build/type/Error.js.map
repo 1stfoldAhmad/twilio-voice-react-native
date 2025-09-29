@@ -1,0 +1,1 @@
+{"version":3,"file":"Error.js","sourceRoot":"","sources":["../../src/type/Error.ts"],"names":[],"mappings":"","sourcesContent":["import type { Constants } from '../constants';\n\nexport interface NativeErrorInfo {\n  code: number;\n  message: string;\n}\n\nexport interface NativeErrorEvent {\n  type: Constants.VoiceEventError;\n  error: NativeErrorInfo;\n}\n"]}

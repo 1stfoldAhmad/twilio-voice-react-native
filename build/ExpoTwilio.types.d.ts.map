@@ -1,0 +1,1 @@
+{"version":3,"file":"ExpoTwilio.types.d.ts","sourceRoot":"","sources":["../src/ExpoTwilio.types.ts"],"names":[],"mappings":"AAAA,MAAM,MAAM,sBAAsB,GAAG;IACnC,QAAQ,EAAE,CAAC,MAAM,EAAE,kBAAkB,KAAK,IAAI,CAAC;CAChD,CAAC;AAEF,MAAM,MAAM,kBAAkB,GAAG;IAC/B,KAAK,EAAE,MAAM,CAAC;CACf,CAAC"}

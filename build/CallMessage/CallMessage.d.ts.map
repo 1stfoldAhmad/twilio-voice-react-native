@@ -1,0 +1,1 @@
+{"version":3,"file":"CallMessage.d.ts","sourceRoot":"","sources":["../../src/CallMessage/CallMessage.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AAIH;;;;GAIG;AACH,MAAM,WAAW,WAAW;IAC1B;;;;;OAKG;IACH,OAAO,EAAE,GAAG,CAAC;IAEb;;;;;;;;;;;OAWG;IACH,WAAW,CAAC,EAAE,MAAM,CAAC;IAErB;;;;OAIG;IACH,WAAW,EAAE,MAAM,CAAC;CACrB;AAED;;;;;;;;GAQG;AACH,wBAAgB,mBAAmB,CAAC,OAAO,EAAE,WAAW;;;;EA4BvD"}

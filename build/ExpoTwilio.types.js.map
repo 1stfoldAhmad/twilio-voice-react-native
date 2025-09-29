@@ -1,0 +1,1 @@
+{"version":3,"file":"ExpoTwilio.types.js","sourceRoot":"","sources":["../src/ExpoTwilio.types.ts"],"names":[],"mappings":"","sourcesContent":["export type ExpoTwilioModuleEvents = {\n  onChange: (params: ChangeEventPayload) => void;\n};\n\nexport type ChangeEventPayload = {\n  value: string;\n};\n"]}

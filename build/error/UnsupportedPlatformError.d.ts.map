@@ -1,0 +1,1 @@
+{"version":3,"file":"UnsupportedPlatformError.d.ts","sourceRoot":"","sources":["../../src/error/UnsupportedPlatformError.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,eAAe,CAAC;AAE5C;;;;;GAKG;AACH,qBAAa,wBAAyB,SAAQ,WAAW;IACvD,WAAW,EAAE,MAAM,CAAiC;IACpD,WAAW,EAAE,MAAM,CAAgD;gBAEvD,OAAO,EAAE,MAAM;CAM5B"}
