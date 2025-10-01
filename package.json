@@ -31,14 +31,14 @@
   "license": "MIT",
   "homepage": "https://github.com/MoveRDC/twilio-voice-react-native#readme",
   "dependencies": {
-    "eventemitter3": "^5.0.1"
+    "eventemitter3": "^5.0.1",
+    "expo-module-scripts": "^4.1.6"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^10.0.1",
     "@types/react": "~19.0.0",
-    "expo": "~52.0.46",
-    "expo-module-scripts": "^4.1.6",
-    "react-native": "0.79.1",
+    "expo": "~53.0.23",
+    "react-native": "0.79.6",
     "release-it": "^19.0.4"
   },
   "peerDependencies": {
