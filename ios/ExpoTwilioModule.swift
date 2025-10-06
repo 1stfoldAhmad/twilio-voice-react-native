@@ -1,4 +1,5 @@
 import ExpoModulesCore
+import TwilioVoice
 
 public class ExpoTwilioModule: Module {
   // Each module class must implement the definition function. The definition consists of components
@@ -32,5 +33,30 @@ public class ExpoTwilioModule: Module {
       ])
     }
 
+    // Register for incoming calls with optional FCM token (for expo-notifications compatibility)
+    AsyncFunction("voice_register") { (accessToken: String, fcmToken: String?) in
+      TwilioVoiceSDK.register(accessToken: accessToken, deviceToken: nil) { error in
+        if let error = error {
+          // Error will be sent via native event emitter
+          print("Registration failed: \(error.localizedDescription)")
+        } else {
+          // Registration successful - event will be sent via native event emitter
+          print("Successfully registered for incoming calls")
+        }
+      }
+    }
+
+    // Unregister from incoming calls with optional FCM token
+    AsyncFunction("voice_unregister") { (accessToken: String, fcmToken: String?) in
+      TwilioVoiceSDK.unregister(accessToken: accessToken, deviceToken: nil) { error in
+        if let error = error {
+          // Error will be sent via native event emitter
+          print("Unregistration failed: \(error.localizedDescription)")
+        } else {
+          // Unregistration successful - event will be sent via native event emitter
+          print("Successfully unregistered from incoming calls")
+        }
+      }
+    }
   }
 }

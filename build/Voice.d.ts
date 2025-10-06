@@ -297,19 +297,21 @@ export declare class Voice extends EventEmitter {
     /**
      * Register this device for incoming calls.
      * @param token - A Twilio Access Token.
+     * @param fcmToken - Optional FCM token from expo-notifications for compatibility.
      * @returns
      * A `Promise` that
      *  - Resolves when the device has been registered.
      */
-    register(token: string): Promise<void>;
+    register(token: string, fcmToken?: string): Promise<void>;
     /**
      * Unregister this device for incoming calls.
      * @param token - A Twilio Access Token.
+     * @param fcmToken - Optional FCM token from expo-notifications for compatibility.
      * @returns
      * A `Promise` that
      *  - Resolves when the device has been unregistered.
      */
-    unregister(token: string): Promise<void>;
+    unregister(token: string, fcmToken?: string): Promise<void>;
     /**
      * Get audio device information from the native layer.
      * @returns

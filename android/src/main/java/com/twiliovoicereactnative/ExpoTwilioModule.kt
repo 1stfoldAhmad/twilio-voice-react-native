@@ -4,6 +4,9 @@ import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 import com.twilio.voice.Voice
 import com.twilio.voice.ConnectOptions
+import com.twilio.voice.RegistrationListener
+import com.twilio.voice.RegistrationException
+import com.twilio.voice.UnregistrationListener
 import java.util.UUID
 import com.twiliovoicereactnative.CallRecordDatabase.CallRecord
 
@@ -38,6 +41,36 @@ class ExpoTwilioModule : Module() {
         "value" to value
       ))
     }
+    // Register for incoming calls with optional FCM token (for expo-notifications compatibility)
+    AsyncFunction("voice_register") { accessToken: String, fcmToken: String? ->
+      val context = appContext.reactContext ?: throw Exception("Context not available")
+
+      Voice.register(accessToken, Voice.RegistrationChannel.FCM, context, object : RegistrationListener {
+        override fun onRegistered(accessToken: String, fcmToken: String) {
+          // Registration successful - event will be sent via native event emitter
+        }
+
+        override fun onError(registrationException: RegistrationException, accessToken: String, fcmToken: String) {
+          // Error will be sent via native event emitter
+        }
+      })
+    }
+
+    // Unregister from incoming calls with optional FCM token
+    AsyncFunction("voice_unregister") { accessToken: String, fcmToken: String? ->
+      val context = appContext.reactContext ?: throw Exception("Context not available")
+
+      Voice.unregister(accessToken, Voice.RegistrationChannel.FCM, context, object : UnregistrationListener {
+        override fun onUnregistered(accessToken: String, fcmToken: String) {
+          // Unregistration successful - event will be sent via native event emitter
+        }
+
+        override fun onError(registrationException: RegistrationException, accessToken: String, fcmToken: String) {
+          // Error will be sent via native event emitter
+        }
+      })
+    }
+
     Function("voice_connect") { accessToken: String, twimlParams: HashMap<String, String>?, calleeName: String, displayName: String ->
       val context = appContext.reactContext ?: return@Function null
 
