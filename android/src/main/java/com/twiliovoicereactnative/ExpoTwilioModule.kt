@@ -45,7 +45,7 @@ class ExpoTwilioModule : Module() {
     AsyncFunction("voice_register") { accessToken: String, fcmToken: String? ->
       val context = appContext.reactContext ?: throw Exception("Context not available")
 
-      Voice.register(accessToken, Voice.RegistrationChannel.FCM, context, object : RegistrationListener {
+      Voice.register(accessToken, Voice.RegistrationChannel.FCM, fcmToken ?: "", context, object : RegistrationListener {
         override fun onRegistered(accessToken: String, fcmToken: String) {
           // Registration successful - event will be sent via native event emitter
         }
@@ -60,7 +60,7 @@ class ExpoTwilioModule : Module() {
     AsyncFunction("voice_unregister") { accessToken: String, fcmToken: String? ->
       val context = appContext.reactContext ?: throw Exception("Context not available")
 
-      Voice.unregister(accessToken, Voice.RegistrationChannel.FCM, context, object : UnregistrationListener {
+      Voice.unregister(accessToken, Voice.RegistrationChannel.FCM, fcmToken ?: "", context, object : UnregistrationListener {
         override fun onUnregistered(accessToken: String, fcmToken: String) {
           // Unregistration successful - event will be sent via native event emitter
         }
