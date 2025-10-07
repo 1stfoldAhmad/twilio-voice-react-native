@@ -43,14 +43,11 @@ class ExpoTwilioModule : Module() {
     }
     // Register for incoming calls with optional FCM token (for expo-notifications compatibility)
     AsyncFunction("voice_register") { accessToken: String, fcmToken: String? ->
-      val context = appContext.reactContext ?: throw Exception("Context not available")
-
-      Voice.register(accessToken, Voice.RegistrationChannel.FCM, fcmToken ?: "", context, object : RegistrationListener {
-        override fun onRegistered(accessToken: String, fcmToken: String) {
+      Voice.register(accessToken, Voice.RegistrationChannel.FCM, fcmToken ?: "", object : RegistrationListener {
+        override fun onRegistered(accessToken: String, params: Map<String, String>) {
           // Registration successful - event will be sent via native event emitter
         }
-
-        override fun onError(registrationException: RegistrationException, accessToken: String, fcmToken: String) {
+        override fun onError(error: RegistrationException, accessToken: String, params: Map<String, String>) {
           // Error will be sent via native event emitter
         }
       })
@@ -58,14 +55,11 @@ class ExpoTwilioModule : Module() {
 
     // Unregister from incoming calls with optional FCM token
     AsyncFunction("voice_unregister") { accessToken: String, fcmToken: String? ->
-      val context = appContext.reactContext ?: throw Exception("Context not available")
-
-      Voice.unregister(accessToken, Voice.RegistrationChannel.FCM, fcmToken ?: "", context, object : UnregistrationListener {
-        override fun onUnregistered(accessToken: String, fcmToken: String) {
+      Voice.unregister(accessToken, Voice.RegistrationChannel.FCM, fcmToken ?: "", object : UnregistrationListener {
+        override fun onUnregistered(accessToken: String, params: Map<String, String>) {
           // Unregistration successful - event will be sent via native event emitter
         }
-
-        override fun onError(registrationException: RegistrationException, accessToken: String, fcmToken: String) {
+        override fun onError(error: RegistrationException, accessToken: String, params: Map<String, String>) {
           // Error will be sent via native event emitter
         }
       })
